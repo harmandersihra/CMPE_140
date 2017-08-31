@@ -91,3 +91,5 @@ module compare #(parameter width = 32)(
 	assign out = A > B ? 1 : 0;
 
 endmodule
+
+// some code
