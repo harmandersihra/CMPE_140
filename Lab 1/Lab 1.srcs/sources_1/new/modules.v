@@ -92,6 +92,7 @@ module compare #(parameter width = 32)(
 
 endmodule
 
+// register module
 module register #(parameter width = 32)(
     input wire [width - 1:0] D,
     input wire loadreg, clk,
