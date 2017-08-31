@@ -92,4 +92,15 @@ module compare #(parameter width = 32)(
 
 endmodule
 
-// some code
+module register #(parameter width = 32)(
+    input wire [width - 1:0] D,
+    input wire Loadreg, clk,
+    output reg [width - 1:0] Q
+    );
+        
+    always@(posedge clk)
+    begin
+        Q=D;
+    end
+    
+endmodule
