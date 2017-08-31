@@ -26,8 +26,7 @@ endmodule
 // Multiplier module, default bus width: 32 bits
 module multiplier #(parameter bus_width = 32)(
 	// Two data inputs
-	input wire [bus_width - 1:0] A,
-	input wire [bus_width - 1:0] B,
+	input wire [bus_width - 1:0] A, B,
 
 	// Multiplier data output
 	output wire [bus_width - 1:0] out
@@ -40,8 +39,7 @@ endmodule
 // Simple 2-input multiplexor, default bus width: 32 bits
 module mux2 #(parameter bus_width = 32)(
 	// Two data inputs
-	input wire [bus_width - 1:0] A,
-	input wire [bus_width - 1:0] B,
+	input wire [bus_width - 1:0] A, B,
 
 	// Select line input
 	input wire select,
@@ -57,10 +55,7 @@ endmodule
 // Counter module with load and enable
 module cnt_down #(parameter width = 32)(
 	// Control signal inputs
-	input wire load,
-	input wire enable,
-	input wire clk,
-
+	input wire load, enable, clk,
 	// Data input
 	input wire [width - 1:0] D,
 
@@ -82,4 +77,17 @@ module cnt_down #(parameter width = 32)(
 		// Count down if enable is enabled
 		if (enable) mem = mem - 4'b0001;
 	end
+endmodule
+
+// Compare module
+module compare #(parameter width = 32)(
+	// Two Data inputs
+	input wire [width - 1:0] A, B,
+
+	// Data output
+	output wire out
+	);
+
+	assign out = A > B ? 1 : 0;
+
 endmodule
