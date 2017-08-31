@@ -94,13 +94,16 @@ endmodule
 
 module register #(parameter width = 32)(
     input wire [width - 1:0] D,
-    input wire Loadreg, clk,
+    input wire loadreg, clk,
     output reg [width - 1:0] Q
     );
-        
+
     always@(posedge clk)
     begin
-        Q=D;
+    	if (loadreg)
+    	begin
+    		Q = D;
+    	end
     end
-    
+
 endmodule
