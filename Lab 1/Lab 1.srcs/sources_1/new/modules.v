@@ -23,9 +23,33 @@ module bin2bcd32(
 
 endmodule
 
-module multiplier(
-	input wire [21:0] A,
-	input wire [21:0] B,
+// Multiplier module, default bus width: 32 bits
+module multiplier #(parameter bus_width = 32)(
+	// Two data inputs
+	input wire [bus_width - 1:0] A,
+	input wire [bus_width - 1:0] B,
 
-	output wire [21:0] out
+	// Multiplier data output
+	output wire [bus_width - 1:0] out
 	);
+
+	assign out = A * B;
+
+endmodule
+
+// Simple 2-input multiplexor, default bus width: 32 bits
+module mux2 #(parameter bus_width = 32)(
+	// Two data inputs
+	input wire [bus_width - 1:0] A,
+	input wire [bus_width - 1:0] B,
+
+	// Select line input
+	input wire select,
+
+	// Data output
+	output wire [bus_width - 1:0] out
+	);
+
+	assign out = select ? A : B;
+
+endmodule
