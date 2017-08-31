@@ -53,3 +53,33 @@ module mux2 #(parameter bus_width = 32)(
 	assign out = select ? A : B;
 
 endmodule
+
+// Counter module with load and enable
+module cnt_down #(parameter width = 32)(
+	// Control signal inputs
+	input wire load,
+	input wire enable,
+	input wire clk,
+
+	// Data input
+	input wire [width - 1:0] D,
+
+	// Data output
+	output wire [width - 1:0] Q
+	);
+
+	// Internal register to hold data
+	reg [width - 1:0] mem;
+
+	// Assign output to internal register
+	assign Q = mem;
+
+	always@(posedge clk)
+	begin
+		// If load is enabled, load data input into internal register
+		if (load) mem = D;
+
+		// Count down if enable is enabled
+		if (enable) mem = mem - 4'b0001;
+	end
+endmodule
