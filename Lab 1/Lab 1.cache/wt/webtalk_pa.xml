@@ -3,7 +3,7 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Fri Sep 01 15:37:49 2017">
+<application name="pa" timeStamp="Fri Sep 01 15:58:45 2017">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="f80276b343e240bab05b587fccbcfc0f" type="ProjectID"/>
 <property name="ProjectIteration" value="1" type="ProjectIteration"/>
@@ -19,27 +19,35 @@ This means code written to parse this file will need to be revisited each subseq
 <item name="Java Command Handlers">
 <property name="AddSources" value="3" type="JavaHandler"/>
 <property name="NewProject" value="1" type="JavaHandler"/>
-<property name="SetTopNode" value="1" type="JavaHandler"/>
+<property name="SetTopNode" value="3" type="JavaHandler"/>
 <property name="SimulationRun" value="17" type="JavaHandler"/>
 <property name="SimulationRunAll" value="1" type="JavaHandler"/>
-<property name="ViewTaskRTLAnalysis" value="1" type="JavaHandler"/>
+<property name="ViewTaskRTLAnalysis" value="8" type="JavaHandler"/>
 </item>
 <item name="Gui Resources Info">
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, Syntax Error Files, factorial_CU_DP_wrap.v], 2, false" value="2" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, Syntax Error Files, factorial_CU_DP_wrap.v], 2, false, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, Syntax Error Files, factorial_machine_fpga.v], 2, false" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, Syntax Error Files, factorial_machine_fpga.v], 2, false, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, Syntax Error Files, factorial_machine_fpga.v], 3, false" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, Syntax Error Files], 1" value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.CmdMsgDialog_OK, OK" value="7" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, Hierarchy Update" value="2" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_SET_AS_TOP, Set as Top" value="2" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, factorial_machine_fpga (factorial_machine_fpga.v" value="11" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, RTL Analysis, Open Elaborated Design], 14, true" value="7" type="GuiResourceData"/>
 <property name="PAResourceEtoH.GettingStartedView_RECENT_PROJECTS, C:/Users/Harmander/CMPE_140/Lab 1/Lab 1.xpr, 0" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.PAViews_CODE, Code" value="1" type="GuiResourceData"/>
-<property name="factorial_CU_DP_wrap.v, 177, 63" value="1" type="GuiResourceData"/>
-<property name="factorial_machine_fpga.v, 323, 183" value="1" type="GuiResourceData"/>
+<property name="PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, [, Vivado Commands, synth_design -rtl -name rtl_1. , [Synth 8-285] failed synthesizing module 'factorial_CU' [C:/Users/Harmander/CMPE_140/Lab 1/Lab 1.srcs/sources_1/new/factorial_CU.v:3]. ], 9" value="1" type="GuiResourceData"/>
+<property name="PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, [, Vivado Commands, synth_design -rtl -name rtl_1. , [Synth 8-285] failed synthesizing module 'factorial_CU' [C:/Users/Harmander/CMPE_140/Lab 1/Lab 1.srcs/sources_1/new/factorial_CU.v:3]. ], 9, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, [, Vivado Commands, synth_design -rtl -name rtl_1. , [Synth 8-638] synthesizing module 'factorial_CU_DP_wrap' [C:/Users/Harmander/CMPE_140/Lab 1/Lab 1.srcs/sources_1/new/factorial_CU_DP_wrap.v:3]. ], 6" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SrcMenu_IP_HIERARCHY, IP Hierarchy" value="3" type="GuiResourceData"/>
+<property name="PAResourceTtoZ.TaskBanner_CLOSE, (String" value="2" type="GuiResourceData"/>
+<property name="factorial_CU.v, 174, 350" value="1" type="GuiResourceData"/>
+<property name="factorial_CU_DP_wrap.v, 116, 106" value="1" type="GuiResourceData"/>
+<property name="factorial_CU_DP_wrap.v, 128, 105" value="1" type="GuiResourceData"/>
+<property name="factorial_CU_DP_wrap.v, 233, 281" value="1" type="GuiResourceData"/>
+<property name="factorial_CU_DP_wrap.v, 275, 259" value="1" type="GuiResourceData"/>
+<property name="factorial_CU_DP_wrap.v, 275, 259, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="factorial_CU_DP_wrap.v, 48, 278" value="1" type="GuiResourceData"/>
 </item>
 <item name="Other">
-<property name="GuiMode" value="77" type="GuiMode"/>
+<property name="GuiMode" value="78" type="GuiMode"/>
 <property name="BatchMode" value="0" type="BatchMode"/>
-<property name="TclMode" value="58" type="TclMode"/>
+<property name="TclMode" value="59" type="TclMode"/>
 </item>
 </section>
 </application>

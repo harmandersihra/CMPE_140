@@ -33,7 +33,7 @@ module factorial_CU(
     always@(control_register) {load_cnt, load_reg, sel_1, sel_2, cnt_en, done} = control_register;
 
     // Always block which handles asynchronous reset and going to next state
-    always@(posedge clk, rst) curr_state = rst ? START : next_state;
+    always@(posedge clk, posedge rst) curr_state = rst ? START : next_state;
 
     // Always block to select next state
     always@(curr_state, gt, go)

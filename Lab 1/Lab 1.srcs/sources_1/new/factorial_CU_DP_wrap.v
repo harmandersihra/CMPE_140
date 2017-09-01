@@ -13,8 +13,8 @@ module factorial_CU_DP_wrap(
 factorial_CU u0(
     .go(GO), .clk(clk), .gt(gt), .rst(rst),
     .load_cnt(load_cnt), .load_reg(load_reg), .sel_1(sel_1),
-    .sel_2(sel_2), .cnt_en(cnt_en), .DONE(DONE),
-    .cs(cs), .ns(ns)
+    .sel_2(sel_2), .cnt_en(cnt_en), .done(DONE),
+    .curr_state(cs), .next_state(ns)
     );
 
 factorial_DP u1(
