@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 module factorial_CU_DP_wrap(
-    input GO, clk, rst
+    input GO, clk, rst,
     input [31:0] n,
     output DONE,
     output [2:0] cs, ns,
