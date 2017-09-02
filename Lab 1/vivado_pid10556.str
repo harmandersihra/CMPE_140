@@ -1,0 +1,159 @@
+/*
+
+Vivado v2016.2 (64-bit)
+SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
+Process ID: 10556
+
+Current time: 	8/30/17 6:22:03 PM PDT
+Time zone: 	Pacific Standard Time (America/Los_Angeles)
+
+OS: Windows 10
+Version: 10.0
+Architecture: amd64
+Available processors (cores): 4
+
+Screen size: 1368x912
+Screen resolution (DPI): 96
+Available screens: 1
+Default font: family=Tahoma,name=Tahoma,style=plain,size=11
+
+Java version: 	1.8.0_66 64-bit
+Java home: 	C:/Xilinx/Vivado/2016.2/tps/win64/jre
+
+User name: 	Van
+User home directory: C:/Users/Van
+User working directory: C:/Users/Van/CMPE140/CMPE_140/Lab 1
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI Base root directory: C:/Xilinx/Vivado
+RDI Data directory: C:/Xilinx/Vivado/2016.2/data
+RDI Bin directory: C:/Xilinx/Vivado/2016.2/bin
+
+Vivado preferences path: C:/Users/Van/AppData/Roaming/Xilinx/Vivado/2016.2/vivado.ini
+Vivado layouts directory: C:/Users/Van/AppData/Roaming/Xilinx/Vivado/2016.2/layouts
+
+GUI allocated memory:	205 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 491 MB
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// bL:g (cv:JFrame):  Open Project : addNotify
+// Opening Vivado Project: C:\Users\Van\CMPE140\CMPE_140\Lab 1\Lab 1.xpr. Version: Vivado v2016.2 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 43 MB (+42997kb) [00:00:05]
+// [Engine Memory]: 424 MB (+292682kb) [00:00:05]
+// Tcl Message: open_project {C:/Users/Van/CMPE140/CMPE_140/Lab 1/Lab 1.xpr} 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified 
+// TclEventType: PROJECT_NEW
+// [Engine Memory]: 447 MB (+2800kb) [00:00:06]
+// [GUI Memory]: 59 MB (+14396kb) [00:00:06]
+// [Engine Memory]: 491 MB (+22389kb) [00:00:06]
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2016.2/data/ip'. 
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 500 MB. GUI used memory: 31 MB. Current time: 8/30/17 6:22:05 PM PDT
+// Project name: Lab 1; location: C:/Users/Van/CMPE140/CMPE_140/Lab 1; part: xc7a100tcsg324-1
+// TclEventType: DG_UPDATE_GRAPH
+dismissDialog("Open Project"); // bL:g (cv:JFrame)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Tcl Message: update_compile_order -fileset sources_1 
+// PAPropertyPanels.initPanels (modules.v) elapsed time: 0.2s
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, mux2 (modules.v)]", 5, false); // z:k (G:JPanel, cv:JFrame)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources]", 7); // z:k (G:JPanel, cv:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, bin2bcd32 (modules.v)]", 1, false); // z:k (G:JPanel, cv:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, bin2bcd32 (modules.v)]", 1, false, false, false, false, false, true); // z:k (G:JPanel, cv:JFrame) - Double Click
+// Elapsed time: 31 seconds
+selectCodeEditor("modules.v", 146, 364); // bH:N (JPanel:JComponent, cv:JFrame)
+selectCodeEditor("modules.v", 124, 390); // bH:N (JPanel:JComponent, cv:JFrame)
+selectCodeEditor("modules.v", 124, 390); // bH:N (JPanel:JComponent, cv:JFrame)
+// Elapsed time: 87 seconds
+typeControlKey((HResource) null, "modules.v", 'c'); // bH:N (JPanel:JComponent, cv:JFrame)
+typeControlKey((HResource) null, "modules.v", 'v'); // bH:N (JPanel:JComponent, cv:JFrame)
+// Elapsed time: 15 seconds
+selectCodeEditor("modules.v", 198, 403); // bH:N (JPanel:JComponent, cv:JFrame)
+// Elapsed time: 42 seconds
+selectCodeEditor("modules.v", 210, 341); // bH:N (JPanel:JComponent, cv:JFrame)
+selectCodeEditor("modules.v", 227, 404); // bH:N (JPanel:JComponent, cv:JFrame)
+selectCodeEditor("modules.v", 248, 314); // bH:N (JPanel:JComponent, cv:JFrame)
+// [Engine Memory]: 519 MB (+3854kb) [00:03:35]
+// Elapsed time: 19 seconds
+selectCodeEditor("modules.v", 238, 380, false, true, false, false, false); // bH:N (JPanel:JComponent, cv:JFrame) - Control Key
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+selectCodeEditor("modules.v", 198, 218); // bH:N (JPanel:JComponent, cv:JFrame)
+typeControlKey((HResource) null, "modules.v", 'c'); // bH:N (JPanel:JComponent, cv:JFrame)
+selectCodeEditor("modules.v", 87, 349); // bH:N (JPanel:JComponent, cv:JFrame)
+typeControlKey((HResource) null, "modules.v", 'v'); // bH:N (JPanel:JComponent, cv:JFrame)
+// Elapsed time: 20 seconds
+selectCodeEditor("modules.v", 83, 282); // bH:N (JPanel:JComponent, cv:JFrame)
+// [GUI Memory]: 64 MB (+1955kb) [00:04:31]
+selectCodeEditor("modules.v", 58, 351); // bH:N (JPanel:JComponent, cv:JFrame)
+selectCodeEditor("modules.v", 100, 326); // bH:N (JPanel:JComponent, cv:JFrame)
+// [GUI Memory]: 69 MB (+2022kb) [00:04:41]
+// HMemoryUtils.trashcanNow. Engine heap size: 527 MB. GUI used memory: 34 MB. Current time: 8/30/17 6:27:25 PM PDT
+// Elapsed time: 70 seconds
+selectCodeEditor("modules.v", 195, 327); // bH:N (JPanel:JComponent, cv:JFrame)
+selectCodeEditor("modules.v", 148, 362); // bH:N (JPanel:JComponent, cv:JFrame)
+selectCodeEditor("modules.v", 103, 295); // bH:N (JPanel:JComponent, cv:JFrame)
+// Elapsed time: 13 seconds
+selectCodeEditor("modules.v", 219, 308); // bH:N (JPanel:JComponent, cv:JFrame)
+// Elapsed time: 12 seconds
+selectCodeEditor("modules.v", 167, 330); // bH:N (JPanel:JComponent, cv:JFrame)
+// Elapsed time: 21 seconds
+selectCodeEditor("modules.v", 101, 373); // bH:N (JPanel:JComponent, cv:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("modules.v", 192, 262); // bH:N (JPanel:JComponent, cv:JFrame)
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Elapsed time: 18 seconds
+selectCodeEditor("modules.v", 187, 258); // bH:N (JPanel:JComponent, cv:JFrame)
+typeControlKey((HResource) null, "modules.v", 'c'); // bH:N (JPanel:JComponent, cv:JFrame)
+typeControlKey((HResource) null, "modules.v", 'c'); // bH:N (JPanel:JComponent, cv:JFrame)
+selectCodeEditor("modules.v", 138, 263); // bH:N (JPanel:JComponent, cv:JFrame)
+typeControlKey((HResource) null, "modules.v", 'v'); // bH:N (JPanel:JComponent, cv:JFrame)
+selectCodeEditor("modules.v", 186, 265); // bH:N (JPanel:JComponent, cv:JFrame)
+typeControlKey(null, null, 'z');
+selectCodeEditor("modules.v", 178, 253); // bH:N (JPanel:JComponent, cv:JFrame)
+// Elapsed time: 14 seconds
+selectCodeEditor("modules.v", 107, 190); // bH:N (JPanel:JComponent, cv:JFrame)
+// [GUI Memory]: 74 MB (+1041kb) [00:07:41]
+selectCodeEditor("modules.v", 220, 312); // bH:N (JPanel:JComponent, cv:JFrame)
+selectCodeEditor("modules.v", 113, 190); // bH:N (JPanel:JComponent, cv:JFrame)
+// Elapsed time: 64 seconds
+selectCodeEditor("modules.v", 105, 195); // bH:N (JPanel:JComponent, cv:JFrame)
+selectCodeEditor("modules.v", 149, 271); // bH:N (JPanel:JComponent, cv:JFrame)
+selectCodeEditor("modules.v", 157, 271); // bH:N (JPanel:JComponent, cv:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+selectCodeEditor("modules.v", 252, 311); // bH:N (JPanel:JComponent, cv:JFrame)
+selectCodeEditor("modules.v", 240, 346); // bH:N (JPanel:JComponent, cv:JFrame)
+// Elapsed time: 33 seconds
+selectCodeEditor("modules.v", 449, 288); // bH:N (JPanel:JComponent, cv:JFrame)
