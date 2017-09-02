@@ -1,15 +1,15 @@
 `timescale 1ns / 1ps
 
 module factorial_CU_DP_wrap_tb();
-    reg GO, clk;
+    reg GO, clk, rst;
     reg [31:0] n;
     wire DONE;
     wire [2:0] cs, ns;
     wire [31:0] product;
     integer loop;
-    
+
 factorial_CU_DP_wrap u0(
-    .GO(GO), .clk(clk), 
+    .GO(GO), .clk(clk), .rst(rst),
     .n(n),
     .DONE(DONE),
     .cs(cs), .ns(ns),
@@ -19,6 +19,7 @@ factorial_CU_DP_wrap u0(
     begin
         for(loop=0;loop<=10;loop=loop+1)
         begin
+            rst = 0;
             GO=0;
             tik_tok;
             n=loop;
@@ -41,7 +42,7 @@ factorial_CU_DP_wrap u0(
         end
         pass;
     end
-    
+
     task tik_tok;
     begin
         clk = 0;
@@ -51,7 +52,7 @@ factorial_CU_DP_wrap u0(
         clk = 0;
     end
     endtask;
-    
+
     task fail;
     begin
         $display ("FACTORIAL CU+DP Wrap TB FAILED");
@@ -59,7 +60,7 @@ factorial_CU_DP_wrap u0(
         #20 $finish;
     end
     endtask;
-    
+
     task pass;
     begin
         $display ("FACTORIAL CU+DP Wrap TB PASSED");
