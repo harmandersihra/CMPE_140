@@ -24,12 +24,12 @@ module bin2bcd32(
 endmodule
 
 // Multiplier module, default bus width: 32 bits
-module multiplier #(parameter bus_width = 32)(
+module multiplier #(parameter width = 32)(
     // Two data inputs
-    input wire [bus_width - 1:0] A, B,
+    input wire [width - 1:0] A, B,
 
     // Multiplier data output
-    output wire [bus_width - 1:0] out
+    output wire [width - 1:0] out
     );
 
     assign out = A * B;
@@ -37,19 +37,19 @@ module multiplier #(parameter bus_width = 32)(
 endmodule
 
 // Simple 2-input multiplexor, default bus width: 32 bits
-module mux2 #(parameter bus_width = 32)(
+module mux2 #(parameter width = 32)(
     // Two data inputs
-    input wire [bus_width - 1:0] A, B,
+    input wire [width - 1:0] A, B,
 
     // Select line input
     input wire select,
 
     // Data output
-    output wire [bus_width - 1:0] out
+    output wire [width - 1:0] out
     );
 
     assign out = (select) ? B : A;
-    
+
 endmodule
 
 // Counter module with load and enable
@@ -62,7 +62,7 @@ module cnt_down #(parameter width = 32)(
     // Data output
     output reg [width - 1:0] Q
     );
-    
+
     // Assign output to internal register
     always@(posedge clk)
     begin
@@ -72,6 +72,7 @@ module cnt_down #(parameter width = 32)(
         // Count down if enable is enabled
         if (enable) Q = Q - 4'b0001;
     end
+
 endmodule
 
 // Compare module
