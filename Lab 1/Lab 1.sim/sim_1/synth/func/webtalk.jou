@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2016.2 (64-bit)
+# SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
+# IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+# Start of session at: Sat Sep 02 00:59:35 2017
+# Process ID: 536
+# Current directory: C:/Users/Harmander/CMPE_140/Lab 1/Lab 1.sim/sim_1/synth/func
+# Command line: wbtcv.exe -mode batch -source C:/Users/Harmander/CMPE_140/Lab 1/Lab 1.sim/sim_1/synth/func/xsim.dir/factorial_CU_tb_func_synth/webtalk/xsim_webtalk.tcl -notrace
+# Log file: C:/Users/Harmander/CMPE_140/Lab 1/Lab 1.sim/sim_1/synth/func/webtalk.log
+# Journal file: C:/Users/Harmander/CMPE_140/Lab 1/Lab 1.sim/sim_1/synth/func\webtalk.jou
+#-----------------------------------------------------------
+source C:/Users/Harmander/CMPE_140/Lab -notrace
