@@ -29,6 +29,9 @@ module factorial_CU(
               MULTIPLY_out = 6'b011010,
               DONE_out     = 6'b001101;
 
+    // Setting current state to 0 initially
+    initial curr_state = 3'b000;
+
     // Assigning output control signals to control register bits
     always@(control_register) {load_cnt, load_reg, sel_1, sel_2, cnt_en, done} = control_register;
 

@@ -1,2 +1,4 @@
 Vivado Simulator 2016.2
 Time resolution is 1 ps
+Test Finished
+$finish called at time : 32 ns : File "C:/Users/Harmander/CMPE_140/Lab 1/Lab 1.srcs/sim_1/new/factorial_CU_tb.v" Line 60
