@@ -2,7 +2,7 @@
 
 module factorial_machine_fpga(
     input [3:0] A,
-    input B,
+    input B, rst,
     output [3:0] C,
     input D,
     output E,
@@ -33,10 +33,10 @@ module factorial_machine_fpga(
 
     button_debouncer u2(clk_5KHz, B, debounce);
 
-    factorial_CU_DP_wrap u3(.GO(D), .clk(debounce), .n(A), .DONE(F), .cs(cs), .ns(ns), .product(product));
+    factorial_CU_DP_wrap u3(.GO(D), .clk(debounce), .n(A), .DONE(F), .cs(cs), .ns(ns), .product(product), .rst(rst));
 
-    assign E=D;
-    assign C=A;
+    // assign E=D;
+    // assign C=A;
 
 
     bin2bcd32 u4(product, TOT0, TOT1, TOT2, TOT3, TOT4, TOT5, TOT6, TOT7);
