@@ -58,3 +58,20 @@ addi $a1, $0, 0x2C
 sw $s2, 0($a1)
 
 # If statement
+# if (a < 0x2500)
+addi $s3, $0, 0x2500
+slt $s4, $a0, $s3
+beq $s4, $0, end
+
+# x = x + 0x89
+addi $s0, $s0, 0x89
+
+# a = 0x9
+addi $a0, $0, 0x9
+
+# store x to memory address 0x30
+addi $s3, $0, 0x30
+sw $s0, 0($s3)
+
+# End of program if a >= 0x2500
+end:
