@@ -1,0 +1,90 @@
+# void main()
+# {
+#     int n, f;
+#     int my_array[50];
+#
+#     // Create the array
+#     for(i=0; i<50; i=i+1)
+#     {
+#         my_array[i] = i*3;
+#     }
+#
+#     /*You will write MIPS code for the following parts*/
+#     // Arithmetic calculation
+#     n = (my_array[25]+ my_array[30])/30;
+#     // Factorial
+#     f = Factorial(n);
+#     return;
+# }
+#
+# // Recursive factorial procedure
+# int Factorial(int n)
+# {
+#     if (n <= 1)
+#         return 1;
+#     else
+#         return (n*Factorial(n-1));
+# }
+
+# $a0 = array base address
+# $a1 = n
+# $s0 = n!
+
+main:
+    li $a0, 0x100   # array base address = 0x100
+    li $a1, 0       # i = 0
+    li $t0, 3       # $t0 = 3
+    li $t1, 50      # t1 = 50
+
+create_array_loop:
+    slt $t2, $a1, $t1       # i < 50
+    beq $t2, $0, exit_loop  # if not, exit loop
+
+    sll  $t2, $a1, 2        # $t2 = i * 4 (byte offset)
+    add  $t2, $t2, $a0      # getting address of array[i]
+    mult $a1, $t0
+    mflo $t3                # $t3 = i * 3
+    sw   $t3, 0($t2)        # save array[i]
+    addi $a1, $a1, 1        # i = i + 1
+    j create_array_loop     # jump back to compare
+
+exit_loop:
+    # perform n = (my_array[25]+ my_array[30])/30;
+    addi $t2, $a0, 100  # $t2 = 4 * 25 = 100 (with 0x100 offset)
+    addi $t3, $a0, 120  # $t3 = 4 * 30 = 120 (with 0x100 offset)
+    li   $t0, 30        # $t0 = 30
+    lw   $t2, 0($t2)    # $t2 = array[25]
+    lw   $t3, 0($t3)    # $t3 = array[30]
+    add  $t3, $t3, $t2  # $t3 = array[25] + array[30]
+    div  $t3, $t0       # (array[25] + array[30]) / 30
+    mflo $a1            # n = (array[25] + array[30]) / 30
+    jal  factorial      # call factorial function
+    sw   $v0, 0x10($0)
+     j   end
+
+factorial:
+    addi $sp, $sp, -8   # Make room on the stack
+    sw   $a1, 4($sp)    # store $a1
+    sw   $ra, 0($sp)    # store $ra
+
+    # Base case - when n = 0
+    beq  $a1, $0, base
+
+    # Recursive part
+    addi $a1, $a1, -1   # decrementing argument
+    jal  factorial      # recursive call to factorial
+    lw   $ra, 0($sp)    # Loading values from stack
+    lw   $a1, 4($sp)
+    mult $a1, $v0       # multiply returned value from factorial and argument
+    mflo $v0            # $v0 = n * factorial(n - 1)
+    addi $sp, $sp, 8    # Add to the stack pointer (shrink it to the top)
+    jr   $ra            # jump to return address
+
+base:
+    lw   $ra, 0($sp)    # Loading values from stack
+    lw   $a1, 4($sp)
+    addi $sp, $sp, 8    # Add to the stack pointer (shrink it to the top)
+    li   $v0, 1         # store 1 as return value if base case
+    jr   $ra            # jump to return address
+
+end:
