@@ -33,7 +33,7 @@
 main:
     li $a0, 0x100   # array base address = 0x100
     li $a1, 0       # i = 0
-    li $t0, 0x3     # $t0 = 3
+    li $t0, 3       # $t0 = 3
     li $t1, 50      # t1 = 50
 
 create_array_loop:
@@ -42,18 +42,44 @@ create_array_loop:
 
     sll $t2, $a1, 2         # $t2 = i * 4 (byte offset)
     add $t2, $t2, $a0       # getting address of array[i]
-    mult $a1, $t1
+    mult $a1, $t0
     mflo $t3                # $t3 = i * 3
     sw $t3, 0($t2)          # save array[i]
+    addi $a1, $a1, 1        # i = i + 1
     j create_array_loop     # jump back to compare
 
 exit_loop:
-
-
-    jal factorial
+    # perform n = (my_array[25]+ my_array[30])/30;
+    addi $t2, $a0, 100  # $t2 = 4 * 25 = 100 (with 0x100 offset)
+    addi $t3, $a0, 120  # $t3 = 4 * 30 = 120 (with 0x100 offset)
+    li $t0, 30          # $t0 = 30
+    lw $t2, 0($t2)      # $t2 = array[25]
+    lw $t3, 0($t3)      # $t3 = array[30]
+    add $t3, $t3, $t2   # $t3 = array[25] + array[30]
+    div $t3, $t0        # (array[25] + array[30]) / 30
+    mflo $a1            # n = (array[25] + array[30]) / 30
+    jal factorial       # call factorial function
     add $s0, $v0, $0    # return value
 
 factorial:
-    addi $sp, $sp, -8
-    sw $a1, 4($sp)
-    sw $ra, 0($sp)
+    addi $sp, $sp, -8   # Make room on the stack
+    sw $a1, 4($sp)      # store $a1
+    sw $ra, 0($sp)      # store $ra
+
+    # Base case - when n = 1
+    beq $a1, $0, base
+
+    # Recursive part
+    add $s0, $0, $a1    # copying argument into $s0 for multiply later
+    addi $a1, $a1, -1   # decrementing argument
+    jal factorial       # recursive call to factorial
+    mult $s0, $v0       # multiply returned value from factorial and argument
+    mflo $s0            # $s0 = n * factorial(n - 1)
+    sw $s0, 0x10($0)    # store answer in 0x10
+
+base:
+    lw $ra, 0($sp)      # Loading values from stack
+    lw $a1, 4($sp)
+    addi $sp, $sp, 8    # Add to the stack pointer (shrink it to the top)
+    li $v0, 1           # store 1 as return value if base case
+    jr $ra              # jump to return address
