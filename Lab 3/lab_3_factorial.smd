@@ -17,28 +17,28 @@
 # 5. The factorial of 5 must be written to the memory location at address 0x10.
 
 main:
-# n = 5
-addi $a0, $0, 0x5
+    # n = 5
+    addi $a0, $0, 0x5
 
-# f = 1
-addi $s0, $0, 0x1
+    # f = 1
+    addi $s0, $0, 0x1
 
-# set $a1 to 1 for comparison
-addi $a1, $0, 0x1
+    # set $a1 to 1 for comparison
+    addi $a1, $0, 0x1
 
 # Loop checking
 check:
-# Check if n == 1
-beq $a0, $a1, output
+    # Check if n == 1
+    beq $a0, $a1, output
 
 # Loop beginning
 loop:
-mult $a0, $s0     # f = f * n
-mflo $s0
-sub $a0, $a0, $a1 # n = n - 1
-j check
+    mult $a0, $s0     # f = f * n
+    mflo $s0
+    sub $a0, $a0, $a1 # n = n - 1
+    j check
 
 # Output after loop exits
 output:
 
-sw $s0, 0x10($0)
+    sw $s0, 0x10($0)
