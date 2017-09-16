@@ -26,4 +26,34 @@
 #         return (n*Factorial(n-1));
 # }
 
+# $a0 = array base address
+# $a1 = n
+# $s0 = n!
+
 main:
+    li $a0, 0x100   # array base address = 0x100
+    li $a1, 0       # i = 0
+    li $t0, 0x3     # $t0 = 3
+    li $t1, 50      # t1 = 50
+
+create_array_loop:
+    slt $t2, $a1, $t1       # i < 50
+    beq $t2, $0, exit_loop  # if not, exit loop
+
+    sll $t2, $a1, 2         # $t2 = i * 4 (byte offset)
+    add $t2, $t2, $a0       # getting address of array[i]
+    mult $a1, $t1
+    mflo $t3                # $t3 = i * 3
+    sw $t3, 0($t2)          # save array[i]
+    j create_array_loop     # jump back to compare
+
+exit_loop:
+
+
+    jal factorial
+    add $s0, $v0, $0    # return value
+
+factorial:
+    addi $sp, $sp, -8
+    sw $a1, 4($sp)
+    sw $ra, 0($sp)
