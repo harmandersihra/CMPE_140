@@ -59,23 +59,27 @@ exit_loop:
     div $t3, $t0        # (array[25] + array[30]) / 30
     mflo $a1            # n = (array[25] + array[30]) / 30
     jal factorial       # call factorial function
-    add $s0, $v0, $0    # return value
+    sw $v0, 0x10($0)
+     j end
 
 factorial:
     addi $sp, $sp, -8   # Make room on the stack
     sw $a1, 4($sp)      # store $a1
     sw $ra, 0($sp)      # store $ra
 
-    # Base case - when n = 1
+    # Base case - when n = 0
     beq $a1, $0, base
 
     # Recursive part
-    add $s0, $0, $a1    # copying argument into $s0 for multiply later
+    #add $s2, $0, $a1    # copying argument into $s0 for multiply later
     addi $a1, $a1, -1   # decrementing argument
     jal factorial       # recursive call to factorial
-    mult $s0, $v0       # multiply returned value from factorial and argument
-    mflo $s0            # $s0 = n * factorial(n - 1)
-    sw $s0, 0x10($0)    # store answer in 0x10
+    lw $ra, 0($sp)      # Loading values from stack
+    lw $a1, 4($sp)
+    mult $a1, $v0       # multiply returned value from factorial and argument
+    mflo $v0            # $s0 = n * factorial(n - 1)
+    addi $sp, $sp, 8    # Add to the stack pointer (shrink it to the top)
+    jr $ra              # jump to return address
 
 base:
     lw $ra, 0($sp)      # Loading values from stack
@@ -83,3 +87,5 @@ base:
     addi $sp, $sp, 8    # Add to the stack pointer (shrink it to the top)
     li $v0, 1           # store 1 as return value if base case
     jr $ra              # jump to return address
+
+end:
