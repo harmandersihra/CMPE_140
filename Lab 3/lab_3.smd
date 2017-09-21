@@ -1,70 +1,76 @@
 # Variables initialization
-# 1.  a = 0x1342;  #MIPS instruction:  addi $a0, $0, 0x1342
-# 2.  b = 0x7321;  #MIPS instruction:  addi $a1, $0, 0x7321
-# •  Arithmetic computation
-# 3.  x = a + b;
-# 4.  store the value of x to memory location at address 0x20;
-# 5.  y = a - 0x1298;
-# 6.  store the value of y to memory location at address 0x24;
-# 7.  z = a*b*(x+y);
-# 8.  store the value of z to memory location at address 0x28;
-# •  If statement
-# 9.  if(a < 0x2500){
-# 10. x = x + 0x89;
-# 11. a = 0x9;
-# 12. store the value of x to memory location at 0x30;
+# 1. a = 0x8000; #MIPS instruction: addiu $a0, $0, 0x8000
+# 2. b = 0x00A9;
+# 3. c = 1974;
+# • Arithmetic computation
+# 4. x = a * a;
+# 5. store the value of x to memory location at address 0x20;
+# 6. y = x * b;
+# 7. store the value of y to memory location at address 0x24;
+# 8. y = y >> 16;
+# 9. c = (c + y / c) / 2;
+# 10. store the value of c to memory location at address 0x2C;
+# • While loop
+# 11. while(c >= 1665){
+# 12. c = (c + y / c) / 2;
 # 13. }
-
+# 14. c = c << 8;
+# 15. store the value of c to memory location at 0x30;
 # $a0 = a
 # $a1 = b
-# $s0 = x
-# $s1 = y
-# $s2 = z
+# $s0 = c
+# $s1 = x
+# $s2 = y
 
 main:
 # Initialize values
-addi $a0, $0, 0x1342 # a
-addi $a1, $0, 0x7321 # b
+addiu $a0, $0, 0x8000 # a
+addiu $a1, $0, 0x00A9 # b
+addiu $s0, $0, 1974   # c = 1974
 
-# x = a + b
-add $s0, $a0, $a1
+# x = a * a
+mult $a0, $a0
+mflo $s1
 
 # Store x to memory address 0x20
-sw $s0, 0x20($0)
+sw $s1, 0x20($0)
 
-# y = a - 0x1298
-addi $s3, $0, 0x1298
-sub $s1, $a0, $s3
-
+# y = x * b
+mult $s1, $a1
+mfhi $s3
+sw   $s3, 0x28($0)
+mflo $s2
 # store y to memory address 0x24
-sw $s1, 0x24($0)
+sw   $s2, 0x24($0)
 
-# z = a*b*(x+y)
-add $s2, $s0, $s1 # z = (x+y)
-mult $s2, $a0     # z = z * a
-mflo $s2
-mult $s2, $a1     # z = z * b
-# store z_hi to memory address 0x28
-mfhi $s2
-sw $s2, 0x28($0)
-# store z_lo to memory address 0x2C
-mflo $s2
-sw $s2, 0x2C($0)
+# y = y >> 16
+srl $s2, $s2, 16     # Shift lower register right by 16 bits
+sll $s3, $s3, 16     # Shift upper register left by 16 bits
+or  $s2, $s2, $s3    # Or both registers to get total
 
-# If statement
-# if (a < 0x2500)
-#addi $s3, $0, 0x2500
-slti $s4, $a0, 0x2500
-beq $s4, $0, end
+# c = (c + y / c) / 2
+div  $s2, $s0
+mflo $s3             # $s3 = y / c
+add  $s0, $s0, $s3   # c = c + y / c
+srl  $s0, $s0, 1     # c = (c + y / c) / 2
 
-# x = x + 0x89
-addi $s0, $s0, 0x89
+# store c to 0x2C
+sw $s0, 0x2C($0)
 
-# a = 0x9
-addi $a0, $0, 0x9
+loop_check:
+# while statement
+# while (c >= 1665)
+slti $s4, $s0, 1665
+bne $s4, $0, end
 
-# store x to memory address 0x30
-sw $s0, 0x30($0)
+# c = (c + y / c) / 2
+div  $s2, $s0
+mflo $s3            # $s3 = y / c
+add  $s0, $s0, $s3  # c = c + y / c
+srl  $s0, $s0, 1    # c = (c + y / c) / 2
+j loop_check
 
-# End of program if a >= 0x2500
+# End of program if c < 1665
 end:
+sll $s0, $s0, 8     # c = c << 8
+sw $s0, 0x30($0)    # store c into 0x30
