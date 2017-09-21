@@ -24,9 +24,9 @@
 
 main:
 # Initialize values
-addiu $a0, $0, 0x8000 # a
-addiu $a1, $0, 0x00A9 # b
-addiu $s0, $0, 1974   # c = 1974
+    addiu $a0, $0, 0x8000 # a
+    addiu $a1, $0, 0x00A9 # b
+    addiu $s0, $0, 1974   # c = 1974
 
 # x = a * a
 mult $a0, $a0
@@ -37,16 +37,16 @@ sw $s1, 0x20($0)
 
 # y = x * b
 mult $s1, $a1
-mfhi $s3
-sw   $s3, 0x28($0)
+#mfhi $s3
+#sw   $s3, 0x28($0)
 mflo $s2
 # store y to memory address 0x24
 sw   $s2, 0x24($0)
 
 # y = y >> 16
 srl $s2, $s2, 16     # Shift lower register right by 16 bits
-sll $s3, $s3, 16     # Shift upper register left by 16 bits
-or  $s2, $s2, $s3    # Or both registers to get total
+#sll $s3, $s3, 16     # Shift upper register left by 16 bits
+#or  $s2, $s2, $s3    # Or both registers to get total
 
 # c = (c + y / c) / 2
 div  $s2, $s0
