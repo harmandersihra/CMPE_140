@@ -1,0 +1,114 @@
+#void main()
+#{
+#int n, f;
+#int my_array[50];
+#// Create the array
+#for(i=0; i<50; i=i+1)
+#{
+#my_array[i] = i*3;
+#}
+#/*You will write MIPS code for the following parts*/
+#// Arithmetic calculation
+#n = (my_array[25]+ my_array[30])/30;
+#// Factorial
+#f = Factorial(n);
+#return;
+#}
+#// Recursive factorial procedure
+#int Factorial(int n)
+#{
+#if (n <= 1)
+#return 1;
+#else
+#return (n*Factorial(n-1));
+#}
+#$a1 <- n
+#$a0 <- array base addr 
+#$s0 <- n!
+
+#int n, f;
+#int my_array[50];
+main:
+    li $a0, 0x100   # array base address = 0x100 #array base address  = 0x100
+    li $a1, 0       # i = 0 
+    li $t0, 3       # $t0 = 3 
+    li $t1, 50      # t1 = 50 
+	
+	
+	
+
+create_array_loop:
+	#for(i=0; i<50; i=i+1)
+	#{
+	#my_array[i] = i*3;
+	#}
+    slt $t2, $a1, $t1       # i < 50
+    beq $t2, $0, exit_loop  # if not, exit loop
+
+    sll  $t2, $a1, 2        # $t2 = i * 4 (byte offset)
+    add  $t2, $t2, $a0      # getting address of array[i]
+    mult $a1, $t0
+    mflo $t3                # $t3 = i * 3
+    sw   $t3, 0($t2)        # save array[i]
+    addi $a1, $a1, 1        # i = i + 1
+    j create_array_loop     # jump back to compare
+
+	
+	
+exit_loop:
+	#/*You will write MIPS code for the following parts*/
+	#// Arithmetic calculation
+	#n = (my_array[25]+ my_array[30])/30;
+	lw $a1, 0x164($0)
+	lw $t0,	0x178($0)
+	add $a1, $a1, $t0
+	addiu $t0, $0, 0x1E
+	div $a1, $t0
+	mflo $a1
+	
+	#// Factorial
+	#f = Factorial(n);
+	#return;
+	#}
+	#// Recursive factorial procedure
+	#int Factorial(int n)
+    jal  factorial      # call factorial function
+     sw   $v0, 0x10($0) #hamanader code
+	add $s0, $v0, $0 #return value, added back in after harmander removed it
+    j   end 	#hamanader code
+
+factorial:
+	#if (n <= 1)
+	#return 1;
+	#else
+	#return (n*Factorial(n-1));
+	#}
+	
+	#push
+     addi $sp, $sp, -8   #move stack pointer down by 8 for two words
+     sw   $a1, 4($sp)    # push $a1
+     sw   $ra, 0($sp)    # push $ra
+	
+	
+	beq $a1, $0, zerocase #branch to base zero case
+
+	addi $a1, $a1, -1
+	jal factorial
+
+	#pop
+     addi $sp, $sp, 8    #move stack pointer back up by 8 for two words
+     lw   $a1, 4($sp)    #pop $a1
+	lw   $ra, 0($sp)    #pop $ra
+
+	mult $v0, $a1 #multipler n with n-1
+	mflo $v0	#move lo to return register
+	jr $ra #jump back to previous factorial to the previous case or back to the main
+	
+zerocase:
+
+
+	addiu $v0, $0, 1 #load one into return value
+
+	jr $ra #jump back to one case where n is 1
+
+end: 

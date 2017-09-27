@@ -85,3 +85,5 @@
 !*.bmm
 !*.xmp
 !*.pdf
+!*.docx
+!*.smd
