@@ -3,6 +3,39 @@ module mux2 #(parameter wide = 8)
     assign y = (sel) ? b : a;
 endmodule
 
+module mux4 #(parameter wide = 8)
+(input [1:0] sel, [wide-1:0] a, b, c, d, output reg [wide-1:0] y);
+    always@(sel,a,b,c,d)
+    begin
+        case(sel)
+        2'b00: assign y=a;
+        2'b01: assign y=b;
+        2'b10: assign y=c;
+        2'b11: assign y=d;
+        default: assign y = 4'bz;
+        endcase
+	end
+endmodule
+
+
+module dreg2
+(input clk, rst, en, [31:0] d, output reg [31:0] q);
+    always @ (posedge clk, posedge rst)
+    begin
+        if (rst) q <= 0;
+        else
+        begin 
+            if(en) q <= d;
+        end
+    end
+endmodule
+
+
+module mult
+(input [31:0] a, b, output [63:0] y);
+    assign y=a*b;
+endmodule
+
 module adder
 (input [31:0] a, b, output [31:0] y);
     assign y = a + b;

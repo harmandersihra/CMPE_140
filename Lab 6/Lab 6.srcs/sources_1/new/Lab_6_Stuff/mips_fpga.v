@@ -44,6 +44,6 @@ module mips_fpga
             3'b110: reg_hex = wd_dm[15:0];          
             3'b111: reg_hex = wd_dm[31:16]; //register $a3
         endcase
-    end
+    end 
     assign sink_bit = (pc_current > 0) ^ (instr > 0) ^ (alu_out > 0);
 endmodule
