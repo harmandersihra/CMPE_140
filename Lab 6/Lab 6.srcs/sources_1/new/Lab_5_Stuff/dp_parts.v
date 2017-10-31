@@ -8,11 +8,11 @@ module mux4 #(parameter wide = 8)
     always@(sel,a,b,c,d)
     begin
         case(sel)
-        2'b00: assign y=a;
-        2'b01: assign y=b;
-        2'b10: assign y=c;
-        2'b11: assign y=d;
-        default: assign y = 4'bz;
+        2'b00: y=a;
+        2'b01: y=b;
+        2'b10: y=c;
+        2'b11: y=d;
+        default: y = 4'bz;
         endcase
 	end
 endmodule
