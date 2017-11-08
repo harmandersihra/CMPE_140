@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1509446675">
+  <File Type="OPT-DCP" Name="mips_fpga_opt.dcp"/>
   <File Type="ROUTE-STATUS-PB" Name="mips_fpga_route_status.pb"/>
   <File Type="PA-TCL" Name="mips_fpga.tcl"/>
-  <File Type="OPT-DCP" Name="mips_fpga_opt.dcp"/>
-  <File Type="INIT-TIMING" Name="mips_fpga_timing_summary_init.rpt"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="mips_fpga_methodology_drc_opted.rpt"/>
   <File Type="RDI-RDI" Name="mips_fpga.vdi"/>
   <File Type="PWROPT-DRC" Name="mips_fpga_drc_pwropted.rpt"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="mips_fpga_methodology_drc_opted.rpt"/>
+  <File Type="INIT-TIMING" Name="mips_fpga_timing_summary_init.rpt"/>
   <File Type="OPT-DRC" Name="mips_fpga_drc_opted.rpt"/>
   <File Type="PWROPT-DCP" Name="mips_fpga_pwropt.dcp"/>
   <File Type="OPT-HWDEF" Name="mips_fpga.hwdef"/>
@@ -31,8 +31,8 @@
   <File Type="ROUTE-DRC" Name="mips_fpga_drc_routed.rpt"/>
   <File Type="ROUTE-DRC-PB" Name="mips_fpga_drc_routed.pb"/>
   <File Type="ROUTE-METHODOLOGY-DRC" Name="mips_fpga_methodology_drc_routed.rpt"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="mips_fpga_methodology_drc_routed.pb"/>
   <File Type="BG-BIT" Name="mips_fpga.bit"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="mips_fpga_methodology_drc_routed.pb"/>
   <File Type="ROUTE-PWR" Name="mips_fpga_power_routed.rpt"/>
   <File Type="ROUTE-PWR-SUM" Name="mips_fpga_power_summary_routed.pb"/>
   <File Type="ROUTE-PWR-RPX" Name="mips_fpga_power_routed.rpx"/>
