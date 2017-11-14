@@ -50,14 +50,13 @@ create_array_loop:
 
 exit_loop:
     # perform n = (my_array[25]+ my_array[30])/30;
-    addi $t2, $a0, 100  # $t2 = 4 * 25 = 100 (with 0x100 offset)
-    addi $t3, $a0, 120  # $t3 = 4 * 30 = 120 (with 0x100 offset)
     li   $t0, 30        # $t0 = 30
-    lw   $t2, 0($t2)    # $t2 = array[25]
-    lw   $t3, 0($t3)    # $t3 = array[30]
+    lw   $t2, 0x164($0) # $t2 = array[25]
+    lw   $t3, 0x178($0) # $t3 = array[30]
     add  $t3, $t3, $t2  # $t3 = array[25] + array[30]
     div  $t3, $t0       # (array[25] + array[30]) / 30
     mflo $a1            # n = (array[25] + array[30]) / 30
+    sw   $a1, 0x00($0)  # store n into 0x00
     jal  factorial      # call factorial function
     sw   $v0, 0x10($0)
      j   end

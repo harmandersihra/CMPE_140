@@ -24,9 +24,9 @@
 
 main:
 # Initialize values
-addiu $a0, $0, 0x8000 # a
-addiu $a1, $0, 0x00A9 # b
-addiu $s0, $0, 1974   # c = 1974
+    addiu $a0, $0, 0x8000 # a
+    addiu $a1, $0, 0x00A9 # b
+    addiu $s0, $0, 1974   # c = 1974
 
 # x = a * a
 mult $a0, $a0
@@ -40,6 +40,7 @@ mult $s1, $a1
 mfhi $s3
 sw   $s3, 0x28($0)
 mflo $s2
+
 # store y to memory address 0x24
 sw   $s2, 0x24($0)
 

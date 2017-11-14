@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2016.2 (64-bit)
+# SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
+# IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+# Start of session at: Tue Oct 31 14:26:51 2017
+# Process ID: 3876
+# Current directory: C:/Users/Van/CMPE_140/Lab 7/Lab 7.sim/sim_1/synth/func
+# Command line: wbtcv.exe -mode batch -source C:/Users/Van/CMPE_140/Lab 7/Lab 7.sim/sim_1/synth/func/xsim.dir/tb_mips_top_func_synth/webtalk/xsim_webtalk.tcl -notrace
+# Log file: C:/Users/Van/CMPE_140/Lab 7/Lab 7.sim/sim_1/synth/func/webtalk.log
+# Journal file: C:/Users/Van/CMPE_140/Lab 7/Lab 7.sim/sim_1/synth/func\webtalk.jou
+#-----------------------------------------------------------
+source C:/Users/Van/CMPE_140/Lab -notrace

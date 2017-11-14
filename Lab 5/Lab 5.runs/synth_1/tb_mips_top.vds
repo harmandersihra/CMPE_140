@@ -1,0 +1,33 @@
+#-----------------------------------------------------------
+# Vivado v2016.2 (64-bit)
+# SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
+# IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+# Start of session at: Thu Oct 05 02:10:10 2017
+# Process ID: 12688
+# Current directory: C:/Users/Van/CMPE_140/Lab 5/Lab 5.runs/synth_1
+# Command line: vivado.exe -log tb_mips_top.vds -mode batch -messageDb vivado.pb -notrace -source tb_mips_top.tcl
+# Log file: C:/Users/Van/CMPE_140/Lab 5/Lab 5.runs/synth_1/tb_mips_top.vds
+# Journal file: C:/Users/Van/CMPE_140/Lab 5/Lab 5.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source tb_mips_top.tcl -notrace
+Command: synth_design -top tb_mips_top -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 11028 
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 272.727 ; gain = 65.848
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'tb_mips_top' [C:/Users/Van/CMPE_140/Lab 5/Lab 5.srcs/sources_1/new/tb_mips_top.v:1]
+ERROR: [Synth 8-3380] loop condition does not converge after 2000 iterations [C:/Users/Van/CMPE_140/Lab 5/Lab 5.srcs/sources_1/new/tb_mips_top.v:13]
+ERROR: [Synth 8-285] failed synthesizing module 'tb_mips_top' [C:/Users/Van/CMPE_140/Lab 5/Lab 5.srcs/sources_1/new/tb_mips_top.v:1]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 1941.082 ; gain = 1734.203
+---------------------------------------------------------------------------------
+synthesize failed
+INFO: [Common 17-83] Releasing license: Synthesis
+3 Infos, 0 Warnings, 0 Critical Warnings and 3 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Vivado Synthesis failed
+INFO: [Common 17-206] Exiting Vivado at Thu Oct 05 02:10:47 2017...

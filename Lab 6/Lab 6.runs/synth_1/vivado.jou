@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2016.2 (64-bit)
+# SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
+# IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+# Start of session at: Thu Oct 12 21:20:32 2017
+# Process ID: 8012
+# Current directory: C:/Users/Van/CMPE_140/Lab 6/Lab 6.runs/synth_1
+# Command line: vivado.exe -log mips_fpga.vds -mode batch -messageDb vivado.pb -notrace -source mips_fpga.tcl
+# Log file: C:/Users/Van/CMPE_140/Lab 6/Lab 6.runs/synth_1/mips_fpga.vds
+# Journal file: C:/Users/Van/CMPE_140/Lab 6/Lab 6.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source mips_fpga.tcl -notrace

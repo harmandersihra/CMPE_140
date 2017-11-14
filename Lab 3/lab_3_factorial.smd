@@ -20,6 +20,9 @@ main:
     # n = 5
     addi $a0, $0, 0x5
 
+    # store n into adddress 0x00
+    sw $a0, 0x00($0)
+
     # f = 1
     addi $s0, $0, 0x1
 
