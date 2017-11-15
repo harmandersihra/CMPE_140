@@ -20,8 +20,8 @@ module bin2bcd32(
     assign dig5 = (value / 100000) % 10;
     assign dig6 = (value / 1000000) % 10;
     assign dig7 = (value / 10000000) % 10;
-
 endmodule
+
 
 // Multiplier module, default bus width: 32 bits
 module multiplier #(parameter width = 32)(
@@ -33,24 +33,8 @@ module multiplier #(parameter width = 32)(
     );
 
     assign out = A * B;
-
 endmodule
 
-// // Simple 2-input multiplexor, default bus width: 32 bits
-// module mux2 #(parameter width = 32)(
-//     // Two data inputs
-//     input wire [width - 1:0] A, B,
-
-//     // Select line input
-//     input wire select,
-
-//     // Data output
-//     output wire [width - 1:0] out
-//     );
-
-//     assign out = (select) ? B : A;
-
-// endmodule
 
 // Counter module with load and enable
 module cnt_down #(parameter width = 32)(
@@ -72,8 +56,8 @@ module cnt_down #(parameter width = 32)(
         // Count down if enable is enabled
         if (enable) Q = Q - 4'b0001;
     end
-
 endmodule
+
 
 // Compare module
 module compare #(parameter width = 32)(
@@ -85,8 +69,8 @@ module compare #(parameter width = 32)(
     );
 
     assign out = A > B ? 1 : 0;
-
 endmodule
+
 
 // register module
 module register #(parameter width = 32)(
@@ -99,5 +83,14 @@ module register #(parameter width = 32)(
     begin
         if (loadreg) Q = D;
     end
+endmodule
 
+
+// 2-input AND gate
+module and2 #(parameter width = 32)(
+    input wire  [width-1:0] a, b,
+    output wire [width-1:0] y
+    );
+
+    assign y = a & b;
 endmodule
