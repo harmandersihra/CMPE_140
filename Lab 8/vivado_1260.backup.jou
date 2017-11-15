@@ -1,0 +1,33 @@
+#-----------------------------------------------------------
+# Vivado v2016.4 (64-bit)
+# SW Build 1756540 on Mon Jan 23 19:11:23 MST 2017
+# IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+# Start of session at: Tue Nov 14 15:55:52 2017
+# Process ID: 1260
+# Current directory: C:/Users/h/Documents/School/CMPE_140/Lab 8
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7552 C:\Users\h\Documents\School\CMPE_140\Lab 8\Lab 8.xpr
+# Log file: C:/Users/h/Documents/School/CMPE_140/Lab 8/vivado.log
+# Journal file: C:/Users/h/Documents/School/CMPE_140/Lab 8\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/h/Documents/School/CMPE_140/Lab 8/Lab 8.xpr}
+add_files -norecurse {{C:/Users/h/Documents/School/CMPE_140/Lab 8/Lab 8.srcs/sources_1/new/cu_parts.v} {C:/Users/h/Documents/School/CMPE_140/Lab 8/Lab 8.srcs/sources_1/new/tb_mips_top.v} {C:/Users/h/Documents/School/CMPE_140/Lab 8/Lab 8.srcs/sources_1/new/mips.v} {C:/Users/h/Documents/School/CMPE_140/Lab 8/Lab 8.srcs/sources_1/new/dp_parts.v} {C:/Users/h/Documents/School/CMPE_140/Lab 8/Lab 8.srcs/sources_1/new/mem_parts.v} {C:/Users/h/Documents/School/CMPE_140/Lab 8/Lab 8.srcs/sources_1/new/datapath.v} {C:/Users/h/Documents/School/CMPE_140/Lab 8/Lab 8.srcs/sources_1/new/tb_mult.v} {C:/Users/h/Documents/School/CMPE_140/Lab 8/Lab 8.srcs/sources_1/new/controlunit.v} {C:/Users/h/Documents/School/CMPE_140/Lab 8/Lab 8.srcs/sources_1/new/tb_mux4.v} {C:/Users/h/Documents/School/CMPE_140/Lab 8/Lab 8.srcs/sources_1/new/tb_dreg2.v} {C:/Users/h/Documents/School/CMPE_140/Lab 8/Lab 8.srcs/sources_1/new/utility.v} {C:/Users/h/Documents/School/CMPE_140/Lab 8/Lab 8.srcs/sources_1/new/mips_top.v} {C:/Users/h/Documents/School/CMPE_140/Lab 8/Lab 8.srcs/sources_1/new/mips_fpga.v}}
+remove_files  {{C:/Users/h/Documents/School/CMPE_140/Lab 8/Lab 8.srcs/sources_1/new/Lab_5_Stuff/controlunit.v} {C:/Users/h/Documents/School/CMPE_140/Lab 8/Lab 8.srcs/sources_1/new/Lab_5_Stuff/cu_parts.v} {C:/Users/h/Documents/School/CMPE_140/Lab 8/Lab 8.srcs/sources_1/new/Lab_5_Stuff/datapath.v} {C:/Users/h/Documents/School/CMPE_140/Lab 8/Lab 8.srcs/sources_1/new/Lab_5_Stuff/dp_parts.v} {C:/Users/h/Documents/School/CMPE_140/Lab 8/Lab 8.srcs/sources_1/new/Lab_5_Stuff/mem_parts.v} {C:/Users/h/Documents/School/CMPE_140/Lab 8/Lab 8.srcs/sources_1/new/Lab_5_Stuff/mips.v} {C:/Users/h/Documents/School/CMPE_140/Lab 8/Lab 8.srcs/sources_1/new/Lab_6_Stuff/mips_fpga.v} {C:/Users/h/Documents/School/CMPE_140/Lab 8/Lab 8.srcs/sources_1/new/Lab_5_Stuff/mips_top.v} {C:/Users/h/Documents/School/CMPE_140/Lab 8/Lab 8.srcs/sources_1/new/Lab_5_Stuff/tb_mips_top.v} {C:/Users/h/Documents/School/CMPE_140/Lab 8/Lab 8.srcs/sources_1/new/Lab_6_Stuff/utility.v}}
+remove_files  {{C:/Users/h/Documents/School/CMPE_140/Lab 8/Lab 8.srcs/sources_1/new/Lab_5_Stuff/memfile.dat}}
+close [ open {C:/Users/h/Documents/School/CMPE_140/Lab 8/Lab 8.srcs/sources_1/new/memfile.dat} w ]
+add_files {{C:/Users/h/Documents/School/CMPE_140/Lab 8/Lab 8.srcs/sources_1/new/memfile.dat}}
+set_property file_type {Memory File} [get_files  {{C:/Users/h/Documents/School/CMPE_140/Lab 8/Lab 8.srcs/sources_1/new/memfile.dat}}]
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top tb_mips_top [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+launch_simulation
+source tb_mips_top.tcl
+close_sim
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
