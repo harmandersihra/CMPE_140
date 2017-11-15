@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1510704497">
-  <File Type="PWROPT-DRC" Name="mips_fpga_drc_pwropted.rpt"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="mips_fpga_methodology_drc_opted.rpt"/>
-  <File Type="INIT-TIMING" Name="mips_fpga_timing_summary_init.rpt"/>
   <File Type="ROUTE-PWR-RPX" Name="mips_fpga_power_routed.rpx"/>
   <File Type="PA-TCL" Name="mips_fpga.tcl"/>
-  <File Type="OPT-HWDEF" Name="mips_fpga.hwdef"/>
+  <File Type="INIT-TIMING" Name="mips_fpga_timing_summary_init.rpt"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="mips_fpga_methodology_drc_opted.rpt"/>
+  <File Type="PWROPT-DRC" Name="mips_fpga_drc_pwropted.rpt"/>
   <File Type="RDI-RDI" Name="mips_fpga.vdi"/>
   <File Type="OPT-DCP" Name="mips_fpga_opt.dcp"/>
+  <File Type="OPT-HWDEF" Name="mips_fpga.hwdef"/>
   <File Type="OPT-DRC" Name="mips_fpga_drc_opted.rpt"/>
   <File Type="OPT-TIMING" Name="mips_fpga_timing_summary_opted.rpt"/>
   <File Type="PWROPT-DCP" Name="mips_fpga_pwropt.dcp"/>
@@ -31,14 +31,14 @@
   <File Type="ROUTE-BLACKBOX-DCP" Name="mips_fpga_routed_bb.dcp"/>
   <File Type="ROUTE-DRC" Name="mips_fpga_drc_routed.rpt"/>
   <File Type="ROUTE-DRC-PB" Name="mips_fpga_drc_routed.pb"/>
-  <File Type="BG-BIN" Name="mips_fpga.bin"/>
   <File Type="ROUTE-DRC-RPX" Name="mips_fpga_drc_routed.rpx"/>
-  <File Type="BG-DRC" Name="mips_fpga.drc"/>
+  <File Type="BG-BIN" Name="mips_fpga.bin"/>
   <File Type="ROUTE-METHODOLOGY-DRC" Name="mips_fpga_methodology_drc_routed.rpt"/>
-  <File Type="BITSTR-MSK" Name="mips_fpga.msk"/>
+  <File Type="BG-DRC" Name="mips_fpga.drc"/>
   <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="mips_fpga_methodology_drc_routed.rpx"/>
-  <File Type="BG-BGN" Name="mips_fpga.bgn"/>
+  <File Type="BITSTR-MSK" Name="mips_fpga.msk"/>
   <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="mips_fpga_methodology_drc_routed.pb"/>
+  <File Type="BG-BGN" Name="mips_fpga.bgn"/>
   <File Type="ROUTE-PWR" Name="mips_fpga_power_routed.rpt"/>
   <File Type="ROUTE-PWR-SUM" Name="mips_fpga_power_summary_routed.pb"/>
   <File Type="ROUTE-STATUS" Name="mips_fpga_route_status.rpt"/>
