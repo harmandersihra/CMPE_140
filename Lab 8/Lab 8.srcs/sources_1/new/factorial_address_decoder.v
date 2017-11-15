@@ -52,5 +52,6 @@ module factorial_address_decoder(
             we1 = 1'bx;
             we2 = 1'bx;
         end
+        endcase
     end
 endmodule

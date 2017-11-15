@@ -9,11 +9,16 @@ module factorial_DP(
 
     // Output data/control signal
     output wire gt,
-    output wire [31:0] product
+    output wire [31:0] product,
+
+    // Error output
+    output wire error
     );
 
     // Making interconnect wires
     wire [31:0] cnt_out, reg_out, mul_out, mux_1_out;
+
+    assign error = (n > 12) ? 1 : 0;
 
     // Initializing counter
     cnt_down counter(.load(load_cnt), .enable(cnt_en), .clk(clk), .D(n), .Q(cnt_out));

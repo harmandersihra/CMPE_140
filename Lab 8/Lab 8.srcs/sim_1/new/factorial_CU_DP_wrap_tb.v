@@ -3,28 +3,28 @@
 module factorial_CU_DP_wrap_tb();
     reg GO, clk, rst;
     reg [31:0] n;
-    wire DONE;
+    wire DONE, error;
     wire [2:0] cs, ns;
     wire [31:0] product;
     integer loop;
 
 factorial_CU_DP_wrap u0(
     .GO(GO), .clk(clk), .rst(rst),
-    .n(n),
+    .n(n), .error(error),
     .DONE(DONE),
     .cs(cs), .ns(ns),
     .product(product)
     );
     initial
     begin
-        for(loop=0;loop<=10;loop=loop+1)
+        for(loop=0;loop<=13;loop=loop+1)
         begin
             rst = 0;
             GO=0;
             tik_tok;
             n=loop;
             GO=1;
-            while(DONE!=1)
+            while(DONE!=1 && error != 1)
             begin
                 tik_tok;
             end
@@ -39,6 +39,9 @@ factorial_CU_DP_wrap u0(
             if(n==8) if(product!=40320) fail;
             if(n==9) if(product!=362880) fail;
             if(n==10) if(product!=3628800) fail;
+            if(n==11) if(product!=39916800) fail;
+            if(n==12) if(product!=479001600) fail;
+            if(n==13) if(!error) fail;
         end
         pass;
     end
