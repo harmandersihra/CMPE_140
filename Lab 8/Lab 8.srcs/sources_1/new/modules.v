@@ -79,6 +79,8 @@ module register #(parameter width = 32)(
     output reg [width - 1:0] Q
     );
 
+    initial Q = 0;
+
     always@(posedge clk)
     begin
         if (loadreg) Q = D;
@@ -93,4 +95,15 @@ module and2 #(parameter width = 32)(
     );
 
     assign y = a & b;
+endmodule
+
+
+// Set_reset register
+module set_reset #(parameter width = 32)(
+    input wire [width-1:0] set, rst,
+    input wire clk,
+    output reg [width-1:0] q
+    );
+
+    always@(clk) q = rst ? 0 : set;
 endmodule

@@ -8,10 +8,10 @@ module factorial_CU_DP_wrap_tb();
     wire [31:0] product;
     integer loop;
 
-factorial_CU_DP_wrap u0(
-    .GO(GO), .clk(clk), .rst(rst),
+factorial_accelerator u0(
+    .go(GO), .clk(clk), .rst(rst),
     .n(n), .error(error),
-    .DONE(DONE),
+    .done(DONE),
     .cs(cs), .ns(ns),
     .product(product)
     );

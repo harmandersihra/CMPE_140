@@ -6,7 +6,7 @@ module factorial_address_decoder(
 
     output reg we1,
     output reg we2,
-    output reg [1:0] rd_sel
+    output wire [1:0] rd_sel
     );
 
     assign rd_sel = address;
