@@ -8,14 +8,14 @@ module soc_single_MIPS_tb;
     soc_single_MIPS DUT(clk, rst, gpi1, gpi2, gpo1, gpo2);
     
     initial begin
-    count=0;
+    count=3;
     rest;
-        while(count != 13)
+        while(count != 14)
         begin
             gpi1=count;
             gpi2=count;
             tik_tok;
-            if(DUT.fac.done==1)
+            if(DUT.fac.done==1||DUT.fac.error==1)
             begin
                 case(count)
                 32'd0: if(DUT.fac.prod!=1)
@@ -49,8 +49,6 @@ module soc_single_MIPS_tb;
                 default:
                     fail;                                  
                 endcase
-                tik_tok;
-                tik_tok;
                 count=count+1;
             end
         end

@@ -105,5 +105,19 @@ module set_reset #(parameter width = 32)(
     output reg [width-1:0] q
     );
 
-    always@(clk) q = rst ? 0 : set;
+    always@(clk) 
+    begin
+        if(rst==1&&set==0)
+        begin
+            q=0;
+        end
+        if(rst==0&&set==1)
+        begin
+            q=1;
+        end
+        if(rst==0&&set==0)
+        begin
+            q=q;
+        end
+    end
 endmodule
