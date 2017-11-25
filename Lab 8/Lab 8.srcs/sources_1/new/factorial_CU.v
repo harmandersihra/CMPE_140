@@ -24,7 +24,7 @@ module factorial_CU(
     // WAIT     |     0    |     0    |    0  |   0   |    0   |   0  |   0
     // MULTIPLY |     0    |     1    |    1  |   0   |    1   |   0  |   0
     // DONE     |     0    |     0    |    1  |   1   |    0   |   1  |   0
-    // ERROR    |     0    |     0    |    0  |   0   |    0   |   0  |   0
+    // ERROR    |     0    |     0    |    0  |   0   |    0   |   0  |   1
     parameter START_out    = 7'b0_0_0_0_0_0_0,
               LOAD_out     = 7'b1_1_0_0_0_0_0,
               WAIT_out     = 7'b0_0_0_0_0_0_0,
