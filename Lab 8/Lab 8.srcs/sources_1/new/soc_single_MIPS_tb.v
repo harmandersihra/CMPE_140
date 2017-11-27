@@ -86,6 +86,7 @@ module soc_single_MIPS_tb;
     task pass;
     begin
         $display ("SOC Single MIPS TB PASSED");
+        tik_tok;
         #50 $stop;
         #20 $finish;
     end
