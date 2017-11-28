@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.4 (win64) Build 1756540 Mon Jan 23 19:11:23 MST 2017
-| Date         : Sat Nov 25 17:00:53 2017
+| Date         : Mon Nov 27 18:13:41 2017
 | Host         : DESKTOP-O5E2KVK running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file soc_single_MIPS_FGPA_control_sets_placed.rpt
 | Design       : soc_single_MIPS_FGPA
@@ -23,7 +23,7 @@ Table of Contents
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
 | Number of unique control sets                            |    14 |
-| Unused register locations in slices containing registers |    43 |
+| Unused register locations in slices containing registers |    44 |
 +----------------------------------------------------------+-------+
 
 
@@ -33,36 +33,36 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              50 |           16 |
-| No           | No                    | Yes                    |               8 |            3 |
+| No           | No                    | No                     |              50 |           18 |
+| No           | No                    | Yes                    |              15 |            6 |
 | No           | Yes                   | No                     |              35 |           12 |
-| Yes          | No                    | No                     |              36 |           13 |
-| Yes          | No                    | Yes                    |              69 |           31 |
-| Yes          | Yes                   | No                     |              31 |            9 |
+| Yes          | No                    | No                     |              32 |           14 |
+| Yes          | No                    | Yes                    |              69 |           29 |
+| Yes          | Yes                   | No                     |              35 |           11 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 3. Detailed Control Set Information
 -----------------------------------
 
-+--------------------------------------+-----------------------------------------------+--------------------------------+------------------+----------------+
-|             Clock Signal             |                 Enable Signal                 |        Set/Reset Signal        | Slice Load Count | Bel Load Count |
-+--------------------------------------+-----------------------------------------------+--------------------------------+------------------+----------------+
-|  system/mips/dp/pc_reg/q01_out       |                                               | system/mips/dp/pc_reg/q0       |                1 |              1 |
-|  system/mips/dp/pc_reg/q01_out_0     |                                               | system/mips/dp/pc_reg/q0_1     |                1 |              1 |
-|  system/mips/dp/pc_reg/Q_reg[0]_0[0] |                                               |                                |                1 |              3 |
-|  clk_5KHz_BUFG                       | system/mips/dp/pc_reg/E[0]                    |                                |                3 |              4 |
-|  clk_5KHz_BUFG                       |                                               | rst_IBUF                       |                3 |              8 |
-|  system/fac/fact/u0/control_register |                                               |                                |                3 |              9 |
-|  clk_5KHz_BUFG                       | system/fac/fact/u0/Q_reg[3][3]                | system/fac/fact/u0/Q_reg[31]_0 |                9 |             31 |
-|  clk_5KHz_BUFG                       | system/fac/fact/u0/Q_reg[3][1]                |                                |               10 |             32 |
-|  clk_5KHz_BUFG                       | system/mips/dp/pc_reg/data_output_reg[0]_1[0] | rst_IBUF                       |               13 |             32 |
-|  clk_5KHz_BUFG                       | system/dec/Q[0]                               |                                |                8 |             32 |
-|  clk_IBUF_BUFG                       |                                               | rst_IBUF                       |               10 |             33 |
-|  clk_5KHz_BUFG                       | system/mips/dp/pc_reg/data_output_reg[0]_2[0] | rst_IBUF                       |               18 |             37 |
-|  clk_5KHz_BUFG                       |                                               |                                |               12 |             38 |
-|  clk_5KHz_BUFG                       | system/mips/dp/pc_reg/we                      |                                |               12 |             96 |
-+--------------------------------------+-----------------------------------------------+--------------------------------+------------------+----------------+
++--------------------------------------+-----------------------------------------------+-----------------------------------+------------------+----------------+
+|             Clock Signal             |                 Enable Signal                 |          Set/Reset Signal         | Slice Load Count | Bel Load Count |
++--------------------------------------+-----------------------------------------------+-----------------------------------+------------------+----------------+
+|  system/mips/dp/pc_reg/Q_reg[1]_12   |                                               | system/mips/dp/pc_reg/Q_reg[1]_15 |                1 |              1 |
+|  system/mips/dp/pc_reg/Q_reg[1]_13   |                                               | system/mips/dp/pc_reg/Q_reg[1]_14 |                1 |              1 |
+|  system/mips/dp/pc_reg/Q_reg[0][0]   |                                               |                                   |                2 |              3 |
+|  clk_5KHz_BUFG                       | system/mips/dp/pc_reg/we1                     | system/mips/dp/pc_reg/Q_reg[0]_1  |                1 |              4 |
+|  system/fac/fact/u0/control_register |                                               |                                   |                3 |              9 |
+|  clk_5KHz_BUFG                       |                                               | rst_IBUF                          |                6 |             15 |
+|  clk_5KHz_BUFG                       | system/fac/fact/u0/Q_reg[3][3]                | system/fac/fact/u0/Q_reg[31]_0    |               10 |             31 |
+|  clk_5KHz_BUFG                       | system/fac/fact/u0/Q_reg[3][1]                |                                   |               14 |             32 |
+|  clk_5KHz_BUFG                       | system/mips/dp/pc_reg/E[0]                    | rst_IBUF                          |               12 |             32 |
+|  clk_5KHz_BUFG                       | system/dec/Q[0]                               |                                   |                8 |             32 |
+|  clk_IBUF_BUFG                       |                                               | rst_IBUF                          |               10 |             33 |
+|  clk_5KHz_BUFG                       | system/mips/dp/pc_reg/data_output_reg[0]_2[0] | rst_IBUF                          |               17 |             37 |
+|  clk_5KHz_BUFG                       |                                               |                                   |               13 |             38 |
+|  clk_5KHz_BUFG                       | system/mips/dp/pc_reg/we                      |                                   |               12 |             96 |
++--------------------------------------+-----------------------------------------------+-----------------------------------+------------------+----------------+
 
 
 +--------+-----------------------+
@@ -71,8 +71,8 @@ Table of Contents
 | 1      |                     2 |
 | 3      |                     1 |
 | 4      |                     1 |
-| 8      |                     1 |
 | 9      |                     1 |
+| 15     |                     1 |
 | 16+    |                     8 |
 +--------+-----------------------+
 
