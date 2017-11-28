@@ -8,7 +8,7 @@ module soc_single_MIPS_tb;
     soc_single_MIPS DUT(clk, rst, gpi1, gpi2, gpo1, gpo2);
     
     initial begin
-    count=3;
+    count=0;
     rest;
         while(count != 14)
         begin
@@ -85,6 +85,13 @@ module soc_single_MIPS_tb;
 
     task pass;
     begin
+        tik_tok;
+        tik_tok;
+        tik_tok;
+        tik_tok;
+        tik_tok;
+        tik_tok;
+        tik_tok;
         $display ("SOC Single MIPS TB PASSED");
         #50 $stop;
         #20 $finish;

@@ -9,13 +9,13 @@ module soc_single_MIPS_FGPA
 
     soc_single_MIPS system(clk_5KHz, rst, {27'd0,switches[4:0]}, gpo1, gpo1, gpo2);
     
-    assign LD[4]=gpo1[1];
-    assign LD[3]=gpo1[0];
-    assign LD[2]=gpo1[0];
-    assign LD[1]=gpo1[0];
-    assign LD[0]=gpo1[0];
+    assign LD[4]=gpo1[4];
+    assign LD[3]=gpo1[1];
+    assign LD[2]=gpo1[1];
+    assign LD[1]=gpo1[1];
+    assign LD[0]=gpo1[1];
     
-    mux2 #(16)(gpo1[1], gpo2[15:0], gpo2[31:16], reg_hex);
+    mux2 #(16)(gpo1[4], gpo2[15:0], gpo2[31:16], reg_hex);
     
     bcd_to_7seg bcd3    (reg_hex[15:12], digit3);
     bcd_to_7seg bcd2    (reg_hex[11:8], digit2);
