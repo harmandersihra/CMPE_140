@@ -88,8 +88,8 @@ endmodule
 
 module equal2 # (parameter width = 32)(
     input  wire [width-1:0] a, b,
-    output wire y;
+    output wire y
     );
 
-    assign y = (a == b);
+    assign y = (a == b) ? 1 : 0;
 endmodule

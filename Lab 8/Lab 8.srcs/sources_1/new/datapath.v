@@ -1,21 +1,23 @@
 module datapath(
     input clk, mult_enE, jump_regD, rst, pc_srcD, jumpD, we_regW, alu_srcE, dm2regW, [2:0] alu_ctrlE, [1:0] reg_dstE, mult_selW, [4:0] ra3, [31:0] instrF, rd_dmM,
-    output alu_zeroD, [31:0] pc_currentF, alu_outM, wd_dmM, rd3
+    output alu_zeroD, [31:0] pc_currentF, alu_outM, wd_dmM, rd3, instrD
     );
 
     wire zero;
     wire [4:0]  rf_waE, rf_waM, rf_waW;
-    wire [31:0] pc_plus4F, pc_plus4D, pc_plus4E, pc_plus4M, pc_plus4W,
-    wire [31:0] pc_pre, pc_next,
-    wire [31:0] sext_immF, sext_immD, sext_immE,
-    wire [31:0] ba, jta,
-    wire [31:0] btaF, btaD,
-    wire [31:0] alu_paD, alu_paE,
-    wire [31:0] rd_dmW,
-    wire [31:0] alu_outE, alu_outM, alu_outW,
-    wire [31:0] alu_pbE, wd_rfW, instrD, instrE, wd_dmE;
+    wire [31:0] pc_plus4F, pc_plus4D, pc_plus4E, pc_plus4M, pc_plus4W;
+    wire [31:0] pc_pre, pc_next;
+    wire [31:0] sext_immF, sext_immD, sext_immE;
+    wire [31:0] ba, jta;
+    wire [31:0] btaF, btaD;
+    wire [31:0] alu_paD, alu_paE;
+    wire [31:0] rd_dmW;
+    wire [31:0] alu_outE, alu_outM, alu_outW;
+    wire [31:0] alu_pbE, wd_rfW, instrD, instrE;
+    wire [31:0] wd_dmD, wd_dmE;
     wire [63:0] mult_outE;
-    wire [31:0] lo_outM, hi_outM, rd_rfW, jr_mux_out;
+    wire [31:0] lo_outM, hi_outM, lo_outW, hi_outW;
+    wire [31:0] rd_rfW, jr_mux_out;
 
     assign ba = {sext_immF[29:0], 2'b00};
     assign jta = {pc_plus4D[31:28], instrD[25:0], 2'b00};
@@ -61,5 +63,5 @@ module datapath(
                           .clk(clk), .loadreg(1'b1));
 
     // --- equal module --- //
-    equal2 alu_zero_equal(.a(alu_paD), .b(wd_dDm), .y(alu_zeroD));
+    equal2 alu_zero_equal(.a(alu_paD), .b(wd_dmD), .y(alu_zeroD));
 endmodule
