@@ -1,5 +1,6 @@
 module datapath
-(input clk, mult_en, jump_reg, rst, pc_src, jump, we_reg, alu_src, dm2reg, [2:0] alu_ctrl, [1:0] reg_dst, mult_sel, [4:0] ra3, [31:0] instr, rd_dm, output zero, [31:0] pc_current, alu_out, wd_dmM, rd3);
+(input clk, mult_en, jump_reg, rst, pc_src, jump, we_reg, alu_src, dm2reg, [2:0] alu_ctrl, [1:0] reg_dst, mult_sel, [4:0] ra3, [31:0] instr, rd_dm, output alu_zeroD, [31:0] pc_current, alu_out, wd_dmM, rd3);
+    wire zero;
     wire [4:0]  rf_wa;
     wire [31:0] pc_plus4, pc_plus4D, pc_plus4E, pc_pre, pc_next, sext_imm, ba, bta, jta, alu_pa, alu_paE, alu_pb, wd_rf, instrD, instrE, wd_dmE;
     wire [63:0] mult_out;
@@ -36,4 +37,7 @@ module datapath
     // --- Pipeline registers --- //
     register #(64)  d_reg(.D({instr, pc_plus4}), .Q({instrD, pc_plus4D}), .clk(clk), .loadreg(1'b1));
     register #(117) e_reg(.D({alu_pa, wd_dm, instrD[20:0], pc_plus4D}), .Q({alu_paE, wd_dmE, instrE[20:0], pc_plus4E}), .clk(clk), .loadreg(1'b1));
+
+    // --- equal module --- //
+    equal2 alu_zero_equal(.a(alu_pa), .b(wd_dm), .y(alu_zeroD));
 endmodule
