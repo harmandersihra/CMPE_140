@@ -1,10 +1,15 @@
 module datapath
-(input clk, mult_en, jump_reg, rst, pc_src, jump, we_reg, alu_src, dm2reg, [2:0] alu_ctrl, [1:0] reg_dst, mult_sel, [4:0] ra3, [31:0] instr, rd_dm, output alu_zeroD, [31:0] pc_current, alu_out, wd_dmM, rd3);
+(input clk, mult_enE, jump_reg, rst, pc_src, jump, we_reg, alu_src, dm2reg, [2:0] alu_ctrl, [1:0] reg_dst, mult_selW, [4:0] ra3, [31:0] instr, rd_dmM, output alu_zeroD, [31:0] pc_current, alu_outM, wd_dmM, rd3);
     wire zero;
-    wire [4:0]  rf_wa;
-    wire [31:0] pc_plus4, pc_plus4D, pc_plus4E, pc_pre, pc_next, sext_imm, ba, bta, jta, alu_pa, alu_paE, alu_pb, wd_rf, instrD, instrE, wd_dmE;
-    wire [63:0] mult_out;
-    wire [31:0] lo_out, hi_out, mult_mux_out, jr_mux_out;
+    wire [4:0]  rf_waE, rf_waM, rf_waW;
+    wire [31:0] pc_plus4, pc_plus4D, pc_plus4E, pc_plus4M, pc_plus4W,
+    wire [31:0] pc_pre, pc_next, sext_imm, ba, bta, jta,
+    wire [31:0] alu_paD, alu_paE,
+    wire [31:0] rd_dmW,
+    wire [31:0] alu_outE, alu_outM, alu_outW,
+    wire [31:0] alu_pb, wd_rfW, instrD, instrE, wd_dmE;
+    wire [63:0] mult_outE;
+    wire [31:0] lo_outM, hi_outM, rd_rfW, jr_mux_out;
     assign ba = {sext_imm[29:0], 2'b00};
     assign jta = {pc_plus4[31:28], instr[25:0], 2'b00};
     // --- PC Logic --- //
@@ -13,31 +18,33 @@ module datapath
     adder      pc_plus_br (pc_plus4, ba, bta);
     mux2 #(32) pc_src_mux (pc_src, pc_plus4, bta, pc_pre);
     mux2 #(32) pc_jmp_mux (jump, pc_pre, jta, pc_next);
-    mux2 #(32) pc_jreg_mux (jump_reg, pc_next, alu_pa, jr_mux_out);
+    mux2 #(32) pc_jreg_mux (jump_reg, pc_next, alu_paD, jr_mux_out);
 
     // --- RF Logic --- //
     //mux2 #(5)  rf_wa_mux  (reg_dst, instr[20:16], instr[15:11], rf_wa);
-    mux4 #(5)  rf_wa_mux  (reg_dst, instrE[20:16], instrE[15:11], 31, 0, rf_wa);
-    regfile    rf         (clk, we_reg, instrD[25:21], instrD[20:16], ra3, rf_wa, mult_mux_out, alu_pa, wd_dm, rd3);
+    mux4 #(5)  rf_wa_mux  (reg_dst, instrE[20:16], instrE[15:11], 31, 0, rf_waE);
+    regfile    rf         (clk, we_reg, instrD[25:21], instrD[20:16], ra3, rf_waW, rd_rfW, alu_paD, wd_dmD, rd3);
     signext    se         (instr[15:0], sext_imm);
 
     // --- ALU Logic --- //
     mux2 #(32) alu_pb_mux (alu_src, wd_dmE, sext_imm, alu_pb);
-    alu        alu        (alu_ctrl, alu_paE, alu_pb, zero, alu_out);
+    alu        alu        (alu_ctrl, alu_paE, alu_pb, zero, alu_outE);
 
     // --- MEM Logic --- //
-    mux2 #(32) rf_wd_mux  (dm2reg, alu_out, rd_dm, wd_rf);
+    mux2 #(32) rf_wd_mux  (dm2reg, alu_outW, rd_dmW, wd_rfW);
 
     // --- MULTU Logic --- //
-    mult multu (alu_paE, wd_dmE, mult_out);
-    dreg2 lo (clk, rst, mult_en, mult_out[31:0], lo_out);
-    dreg2 hi (clk, rst, mult_en, mult_out[63:32], hi_out);
-    mux4 #(32) mult_mux(mult_sel, pc_plus4D, wd_rf, lo_out, hi_out, mult_mux_out);
+    mult multu (alu_paE, wd_dmE, mult_outE);
+    dreg2 lo (clk, rst, mult_enE, mult_outE[31:0], lo_outM);
+    dreg2 hi (clk, rst, mult_enE, mult_outE[63:32], hi_outM);
+    mux4 #(32) mult_mux(mult_selW, pc_plus4D, wd_rfW, lo_outW, hi_outW, rd_rfW);
 
     // --- Pipeline registers --- //
     register #(64)  d_reg(.D({instr, pc_plus4}), .Q({instrD, pc_plus4D}), .clk(clk), .loadreg(1'b1));
-    register #(117) e_reg(.D({alu_pa, wd_dm, instrD[20:0], pc_plus4D}), .Q({alu_paE, wd_dmE, instrE[20:0], pc_plus4E}), .clk(clk), .loadreg(1'b1));
+    register #(117) e_reg(.D({alu_paD, wd_dmD, instrD[20:0], pc_plus4D}), .Q({alu_paE, wd_dmE, instrE[20:0], pc_plus4E}), .clk(clk), .loadreg(1'b1));
+    register #(101) m_reg(.D({alu_outE, wd_dmE, rf_waE, pc_plus4E}), .Q({alu_outM, wd_dmM, rf_waM, pc_plus4M}), .clk(clk), .loadreg(1'b1));
+    register #(165) w_reg(.D({alu_outM, rd_dmM, rf_waM, hi_outM, lo_outM, pc_plus4M}), .Q({alu_outW, rd_dmW, rf_waW, hi_outW, lo_outW, pc_plus4W}), .clk(clk), .loadreg(1'b1));
 
     // --- equal module --- //
-    equal2 alu_zero_equal(.a(alu_pa), .b(wd_dm), .y(alu_zeroD));
+    equal2 alu_zero_equal(.a(alu_paD), .b(wd_dDm), .y(alu_zeroD));
 endmodule
