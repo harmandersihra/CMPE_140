@@ -102,22 +102,32 @@ endmodule
 module set_reset #(parameter width = 32)(
     input wire [width-1:0] set, rst,
     input wire clk,
-    output reg [width-1:0] q
+    output [width-1:0] q
     );
 
-    always@(clk) 
+    reg [width-1:0] data;
+
+    assign q = data;
+    // always@(clk) 
+    // begin
+    //     if(rst==1&&set==0)
+    //     begin
+    //         q=0;
+    //     end
+    //     if(rst==0&&set==1)
+    //     begin
+    //         q=1;
+    //     end
+    //     if(rst==0&&set==0)
+    //     begin
+    //         q=q;
+    //     end
+    // end
+
+    always@(posedge clk, posedge rst)
     begin
-        if(rst==1&&set==0)
-        begin
-            q=0;
-        end
-        if(rst==0&&set==1)
-        begin
-            q=1;
-        end
-        if(rst==0&&set==0)
-        begin
-            q=q;
-        end
+        if(rst) data<=0;
+        else if (set) data<=1;
+        else data<=data;
     end
 endmodule
