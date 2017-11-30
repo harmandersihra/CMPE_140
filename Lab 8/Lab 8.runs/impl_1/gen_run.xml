@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1511835168">
-  <File Type="PWROPT-DRC" Name="soc_single_MIPS_FGPA_drc_pwropted.rpt"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="soc_single_MIPS_FGPA_methodology_drc_opted.rpt"/>
-  <File Type="INIT-TIMING" Name="soc_single_MIPS_FGPA_timing_summary_init.rpt"/>
   <File Type="ROUTE-PWR-RPX" Name="soc_single_MIPS_FGPA_power_routed.rpx"/>
   <File Type="PA-TCL" Name="soc_single_MIPS_FGPA.tcl"/>
-  <File Type="OPT-HWDEF" Name="soc_single_MIPS_FGPA.hwdef"/>
+  <File Type="INIT-TIMING" Name="soc_single_MIPS_FGPA_timing_summary_init.rpt"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="soc_single_MIPS_FGPA_methodology_drc_opted.rpt"/>
+  <File Type="PWROPT-DRC" Name="soc_single_MIPS_FGPA_drc_pwropted.rpt"/>
   <File Type="RDI-RDI" Name="soc_single_MIPS_FGPA.vdi"/>
   <File Type="OPT-DCP" Name="soc_single_MIPS_FGPA_opt.dcp"/>
+  <File Type="OPT-HWDEF" Name="soc_single_MIPS_FGPA.hwdef"/>
   <File Type="OPT-DRC" Name="soc_single_MIPS_FGPA_drc_opted.rpt"/>
   <File Type="OPT-TIMING" Name="soc_single_MIPS_FGPA_timing_summary_opted.rpt"/>
   <File Type="PWROPT-DCP" Name="soc_single_MIPS_FGPA_pwropt.dcp"/>
@@ -31,14 +31,14 @@
   <File Type="ROUTE-BLACKBOX-DCP" Name="soc_single_MIPS_FGPA_routed_bb.dcp"/>
   <File Type="ROUTE-DRC" Name="soc_single_MIPS_FGPA_drc_routed.rpt"/>
   <File Type="ROUTE-DRC-PB" Name="soc_single_MIPS_FGPA_drc_routed.pb"/>
-  <File Type="BG-BIN" Name="soc_single_MIPS_FGPA.bin"/>
   <File Type="ROUTE-DRC-RPX" Name="soc_single_MIPS_FGPA_drc_routed.rpx"/>
-  <File Type="BG-DRC" Name="soc_single_MIPS_FGPA.drc"/>
+  <File Type="BG-BIN" Name="soc_single_MIPS_FGPA.bin"/>
   <File Type="ROUTE-METHODOLOGY-DRC" Name="soc_single_MIPS_FGPA_methodology_drc_routed.rpt"/>
-  <File Type="BITSTR-MSK" Name="soc_single_MIPS_FGPA.msk"/>
+  <File Type="BG-DRC" Name="soc_single_MIPS_FGPA.drc"/>
   <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="soc_single_MIPS_FGPA_methodology_drc_routed.rpx"/>
-  <File Type="BG-BGN" Name="soc_single_MIPS_FGPA.bgn"/>
+  <File Type="BITSTR-MSK" Name="soc_single_MIPS_FGPA.msk"/>
   <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="soc_single_MIPS_FGPA_methodology_drc_routed.pb"/>
+  <File Type="BG-BGN" Name="soc_single_MIPS_FGPA.bgn"/>
   <File Type="ROUTE-PWR" Name="soc_single_MIPS_FGPA_power_routed.rpt"/>
   <File Type="ROUTE-PWR-SUM" Name="soc_single_MIPS_FGPA_power_summary_routed.pb"/>
   <File Type="ROUTE-STATUS" Name="soc_single_MIPS_FGPA_route_status.rpt"/>
