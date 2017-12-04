@@ -24,7 +24,7 @@ module dreg2
     begin
         if (rst) q <= 0;
         else
-        begin 
+        begin
             if(en) q <= d;
         end
     end
@@ -84,4 +84,12 @@ module regfile
     assign rd1 = (ra1 == 0) ? 0 : rf[ra1];
     assign rd2 = (ra2 == 0) ? 0 : rf[ra2];
     assign rd3 = (ra3 == 0) ? 0 : rf[ra3];
+endmodule
+
+module equal2 # (parameter width = 32)(
+    input  wire [width-1:0] a, b,
+    output wire y
+    );
+
+    assign y = (a == b) ? 1 : 0;
 endmodule
