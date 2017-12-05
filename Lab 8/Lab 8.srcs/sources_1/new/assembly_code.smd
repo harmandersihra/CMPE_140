@@ -1,0 +1,23 @@
+main:   addi $t0, $0, 0x0F # $t0 = 0x0F
+        addi $t4, $0, 0x10 #$t4=0x10
+        addi $t1, $0, 1 # $t1 = 1 for GO
+fact:   lw   $t2, 0x0900($0) # read switches
+        add  $0, $0, $0 #nop
+        add  $0, $0, $0 #nop
+        and  $t3, $t2, $t0 # get input data n
+        and  $t6, $t2, $t4 #get input data sel
+        add  $0, $0, $0 #nop
+        add  $0, $0, $0 #nop
+        sw   $t3, 0x0800($0) # write input data n
+        sw   $t1, 0x0804($0) # write control Go bit
+poll:   lw   $t5, 0x0808($0) # read status bit
+        beq  $t5, $0, poll # wait until Done == 1, or Error==1
+        add  $0, $0, $0 #nop
+        or   $t6, $t6, $t5 # get error, input data sel
+        lw   $t5, 0x080C($0) # read result data nf
+        add  $0, $0, $0 #nop
+        sw   $t6, 0x0908($0) # display Sel and Err
+        sw   $t5, 0x090C($0) # display result nf
+        add  $t5, $0, $0
+done:   j    fact # repeat fact loop
+        add  $0, $0, $0 #nop

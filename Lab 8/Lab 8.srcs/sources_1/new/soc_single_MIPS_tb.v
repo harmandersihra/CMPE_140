@@ -10,9 +10,9 @@ module soc_single_MIPS_tb;
     initial begin
         rest;
         for(count = 0; count < 14; count = count + 1) begin
-            tik_tok;
             gpi1=count;
             gpi2=count;
+            tik_tok;
 
             while(DUT.fac.done != 1 && DUT.fac.error != 1) begin
                 tik_tok;
@@ -36,7 +36,7 @@ module soc_single_MIPS_tb;
                 default: fail;
             endcase
 
-            tik_tok;
+            //tik_tok;
         end
     end
 

@@ -5,9 +5,14 @@ module soc_single_MIPS_FGPA
     wire [7:0]  digit0, digit1, digit2, digit3, digit4, digit5, digit6, digit7;
     wire [31:0] gpo1, gpo2;
     
+    /*
     clk_gen     clk_gen (clk, rst, clk_sec, clk_5KHz);
-
     soc_single_MIPS system(clk_5KHz, rst, {27'd0,switches[4:0]}, gpo1, gpo1, gpo2);
+    */
+    
+    clk_gen     clk_gen (clk, rst, clk_sec, clk_5KHz);
+    bdebouncer  bd      (clk_5KHz, button, clk_pb);
+    soc_single_MIPS system(clk_pb, rst, {27'd0,switches[4:0]}, gpo1, gpo1, gpo2);
     
     assign LD[4]=gpo1[4];
     assign LD[3]=gpo1[1];
