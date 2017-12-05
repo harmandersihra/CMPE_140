@@ -77,7 +77,7 @@ module regfile
     initial begin
         for (n = 0; n < 32; n = n + 1) rf[n] = 32'h0;
     end
-    always @ (posedge clk)
+    always @ (negedge clk)
     begin
         if (we) rf[wa] <= wd;
     end
