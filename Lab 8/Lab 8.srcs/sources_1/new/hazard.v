@@ -27,8 +27,9 @@ module hazard(
 		assign FowardAD=(RsD!=0)&(RsD==wa_rfM)&(we_regM);
 		assign FowardBD=(RtD!=0)&(RtD==wa_rfM)&(we_regM);
 
-		branchstall=BranchD&we_regE&(wa_rfE==RsD^wa_rfE==RtD)^BranchD&dm2regE&
+		branchstall=BranchD&we_regE&(wa_rfE==RsD^wa_rfE==RtD)^BranchD&dm2regE&(wa_rfM==RsD^wa_rfM==RtD)
 
+		StallF=StallD=FlushE=branchstall;
 	end
 
 endmodule
