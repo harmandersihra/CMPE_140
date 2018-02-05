@@ -1,14 +1,14 @@
 module controlunit(
     input  wire zeroD, clk, [5:0] opcode, funct,
-    output wire pc_src, jumpD, we_regW, alu_srcE, we_dmM, dm2regW, mult_enE, jump_regD, [1:0] reg_dstE, mult_selW, [2:0] alu_ctrlE
+    output wire pc_src, jumpD, we_regW, alu_srcE, we_dmM, dm2regW, mult_enE, jump_regD, [1:0] reg_dstE, mult_selW, [2:0] alu_ctrlE,
+    output wire dm2regE, we_regE, we_regM
     );
 
     wire [2:0] alu_ctrlD;
     wire [1:0] alu_opD;
     wire [1:0] mult_selD, mult_selE, mult_selM;
-    wire dm2regD, dm2regE, dm2regM;
+    wire dm2regD, dm2regM;
     wire we_dmD, we_dmE, we_dmM;
-    wire we_regE, we_regM;
     wire [1:0] reg_dstD;
     wire alu_srcD;
     wire mult_enD;
